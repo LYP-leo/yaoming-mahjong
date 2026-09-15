@@ -1,0 +1,45 @@
+/* Final public-lane overrides: every hand and identity has fixed tracks, and a
+   river preview is always one line. Import after the earlier lane stylesheet. */
+.ym-app .ym-table.ym-lanes-table { grid-template-rows: repeat(3, 158px); height: 506px; }
+.ym-app .ym-player-lane .ym-lane-identity { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: 27px 18px 28px 14px 29px; gap: 3px 0; height: 128px; min-width: 0; align-content: start; align-items: start; }
+.ym-app .ym-player-lane .ym-lane-identity > .ym-wind { grid-column: 1; grid-row: 1; margin: 0; }
+.ym-app .ym-player-lane .ym-lane-name { display: contents; }
+.ym-app .ym-player-lane .ym-lane-name > strong { grid-column: 1; grid-row: 2; display: block; width: 100%; min-width: 0; height: 18px; line-height: 18px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ym-app .ym-player-lane .ym-lane-status { grid-column: 1; grid-row: 3; min-width: 0; height: 28px; line-height: 14px; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; overflow-wrap: anywhere; }
+.ym-app .ym-player-lane .ym-lane-turn { grid-column: 1; grid-row: 4; display: block; height: 14px; min-height: 14px; line-height: 14px; font-size: 9px; margin: 0; }
+.ym-app .ym-player-lane .ym-lane-turn:empty { visibility: hidden; }
+.ym-app .ym-player-lane .ym-lane-identity > .ym-lane-score { grid-column: 1; grid-row: 5; display: block; width: 100%; height: 29px; margin: 0; line-height: 29px; }
+
+.ym-app .ym-player-lane .ym-lane-body { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: 80px minmax(0, 1fr); gap: 0; min-width: 0; }
+.ym-app .ym-player-lane .ym-lane-public { display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: 28px 52px; gap: 0; height: 80px; min-width: 0; align-items: start; }
+.ym-app .ym-lanes-table .ym-lane-public > .ym-lane-hand-track { display: grid; grid-column: 1; grid-row: 1; grid-template-columns: repeat(14, minmax(0, 1fr)); grid-template-rows: 26px; width: min(100%, 292px); max-width: 100%; height: 28px; min-height: 0; margin: 0; padding: 1px 0; gap: 0 2px; overflow: visible; }
+.ym-app .ym-lane-hand-slot { display: block; min-width: 0; height: 26px; line-height: 1; }
+.ym-app .ym-lanes-table .ym-lane-hand-slot > .ym-tile-small { display: inline-flex; width: 100%; height: auto; min-width: 0; aspect-ratio: 19 / 26; box-sizing: border-box; }
+.ym-app .ym-lanes-table .ym-lane-public > .ym-meld-strip { display: flex; grid-column: 1; grid-row: 2; width: 100%; min-width: 0; height: 52px; min-height: 0; margin: 0; padding: 0 2px 12px; gap: 10px; overflow: visible; flex-wrap: nowrap; align-items: flex-end; }
+
+.ym-app .ym-lanes-table .ym-river.ym-lane-river-tiles { display: grid; grid-template-columns: repeat(24, minmax(0, 1fr)); grid-template-rows: 30px; grid-auto-flow: column; grid-auto-rows: 30px; width: min(100%, 554px); height: 38px; min-height: 0; max-height: none; min-width: 0; padding: 3px 2px 5px; gap: 0 2px; margin: 0; overflow: visible; }
+.ym-app .ym-lanes-table .ym-lane-river-tile { grid-row: 1; min-width: 0; height: 30px; }
+.ym-app .ym-lanes-table .ym-lane-river-tile .ym-tile-small { width: 100%; height: auto; min-width: 0; aspect-ratio: 19 / 26; box-sizing: border-box; }
+
+@media (max-width: 640px) {
+  .ym-app .ym-table.ym-lanes-table { grid-template-rows: repeat(3, 158px); height: 498px; }
+  .ym-app .ym-lanes-table .ym-lane-public > .ym-lane-hand-track { width: min(100%, 209px); column-gap: 1px; }
+  .ym-app .ym-lanes-table .ym-lane-public > .ym-meld-strip { gap: 7px; padding-right: 0; padding-left: 0; }
+  .ym-app .ym-lanes-table .ym-river.ym-lane-river-tiles { grid-template-columns: repeat(16, minmax(0, 1fr)); width: min(100%, 355px); column-gap: 1px; }
+  .ym-app .ym-lanes-table .ym-lane-river-mobile-hidden { display: none; }
+}
+@media (max-width: 360px) {
+  .ym-app .ym-lanes-table .ym-lane-public > .ym-meld-strip { gap: 4px; }
+}
+
+/* Four players need less outer whitespace, not smaller tiles or moving tracks.
+   146 - 2 * (4px padding + 1px border) = 136px for the 135px public content.
+   The self lane's thicker border gets 1px less padding on each side vertically. */
+.ym-app .ym-table.ym-lanes-table.ym-four-player-table { grid-template-rows: repeat(4, 146px); height: 614px; padding: 6px; gap: 6px; }
+.ym-app .ym-four-player-table .ym-player-lane { padding-top: 4px; padding-bottom: 4px; }
+.ym-app .ym-four-player-table .ym-player-lane.ym-lane-self { padding-top: 3px; padding-bottom: 3px; }
+.ym-app:has(.ym-four-player-table) .ym-main { padding-top: 10px; padding-bottom: 10px; }
+.ym-app:has(.ym-four-player-table) .ym-room-heading { margin-bottom: 8px; }
+@media (max-width: 640px) {
+  .ym-app:has(.ym-four-player-table) .ym-main { padding-top: 6px; padding-bottom: 6px; }
+}

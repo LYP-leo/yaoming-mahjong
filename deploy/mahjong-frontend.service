@@ -1,0 +1,16 @@
+[Unit]
+Description=Mahjong Vue frontend (Vite)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=leo
+Group=smbshare
+WorkingDirectory=/home/leo/mahjong_20260822/frontend
+ExecStart=/usr/bin/npm run dev -- --host 127.0.0.1 --port 5173
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

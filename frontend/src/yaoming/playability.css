@@ -1,0 +1,193 @@
+/* Keep the game viewport independent of any host page minimum width. */
+.ym-app .ym-detached-banner { flex-wrap: wrap; }
+.ym-app .ym-detached-banner > span { flex: 1 1 260px; overflow-wrap: anywhere; }
+.ym-app .ym-detached-actions { display: flex; flex-wrap: wrap; gap: 8px 14px; }
+body.ym-active-body { min-width: 0; }
+html:has(.ym-app) { scrollbar-gutter: stable; }
+html:has(.ym-app .ym-overlay) { overflow: hidden; }
+.ym-app .ym-hand-row { display: flex; align-items: center; justify-content: center; gap: 18px; min-width: 0; }
+.ym-app .ym-hand-scroll { flex: 0 1 auto; min-width: 0; max-height: 100%; padding: 10px 3px 8px; scrollbar-width: thin; }
+.ym-app .ym-own-hand { width: max-content; min-width: 0; justify-content: flex-start; }
+.ym-app .ym-draw-slot { flex-shrink: 0; padding: 10px 1px 12px 15px; border-left: 1px solid #79947655; }
+.ym-app .ym-drawn-tile { position: relative; }
+.ym-app .ym-drawn-label { position: absolute; bottom: -14px; left: 0; width: 100%; color: #d5c382; font-size: 9px; text-align: center; }
+.ym-app .ym-hand-tile-selected { transform: translateY(-7px); }
+.ym-app .ym-hand-tile-selected .ym-tile { outline: 2px solid #f1c476; outline-offset: 1px; background: #fff6d3; }
+.ym-app .ym-hand-tile:not(:disabled):hover { transform: translateY(-4px); }
+.ym-app .ym-hand-tile-selected:not(:disabled):hover { transform: translateY(-7px); }
+.ym-app .ym-play-settings { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 13px; font-size: 10px; color: #9ab08c; }
+.ym-app .ym-play-settings label { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; min-height: 28px; }
+.ym-app .ym-play-settings input { width: 15px; height: 15px; margin: 0; accent-color: #dbac5b; }
+.ym-app .ym-play-settings label span { color: #7f9876; font-size: 9px; }
+.ym-app .ym-mobile-deadline { display: none; }
+.ym-app .ym-action-bar > .ym-muted { color: #aac09a; font-size: 10px; }
+.ym-app .ym-latest-river-tile { outline: 2px solid #e9bf6d; outline-offset: 1px; position: relative; z-index: 1; }
+.ym-app .ym-table-center { flex-wrap: wrap; }
+.ym-app .ym-last-discard { display: flex; align-items: center; gap: 8px; background: #163e3166; border: 1px solid #afbc7a55; border-radius: 6px; padding: 7px 10px; margin-left: auto; }
+.ym-app .ym-last-discard strong { font-size: 10px; letter-spacing: 0; }
+.ym-app .ym-last-discard span { font-size: 9px; color: #d2ba7c; }
+.ym-app .ym-last-discard.ym-last-discard-claimed { opacity: .6; }
+.ym-app .ym-last-discard.ym-last-discard-claimed span { color: #a0b295; }
+.ym-app .ym-trustee-banner { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 13px; margin: 7px 0 10px; border: 1px solid #b9914266; border-radius: 7px; background: #5e572233; color: #e0ca90; font-size: 11px; }
+.ym-app .ym-opponent-toggle { display: none; }
+.ym-app .ym-settlement-clock { margin: 14px 0 0; padding: 8px 12px; border-radius: 6px; color: #897448; background: #ece9d7; font-size: 12px; }
+.ym-app .ym-urgent { color: #f1a48b; }
+/* Fixed tracks keep the page stable while rivers, melds and legal actions change.
+   Only the individual, keyboard-focusable regions scroll; content never sizes a track. */
+.ym-app .ym-play-main { min-width: 0; }
+.ym-app .ym-room-heading > div { min-width: 0; }
+.ym-app .ym-room-heading h1 { overflow-wrap: anywhere; }
+.ym-app .ym-room-heading > .ym-row { flex-shrink: 0; max-width: 100%; }
+/* A dialog owns its vertical scrolling; the scrim must not create another
+   scrollbar when a bounded dialog lands on a fractional device pixel. */
+.ym-app .ym-overlay { overflow: hidden; }
+.ym-app .ym-entry-overlay { z-index: 70; }
+.ym-app .ym-entry-dialog { min-width: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; }
+.ym-app .ym-table-scroll { overflow: hidden; }
+.ym-app .ym-table {
+  --ym-opponents-height: 280px; --ym-center-height: 104px; --ym-own-zone-height: 198px;
+  --ym-table-gap: 12px; --ym-table-pad: 20px; --ym-seat-height: 42px; --ym-toggle-height: 0px;
+  --ym-backs-height: 34px; --ym-melds-height: 84px; --ym-river-label-height: 18px; --ym-own-river-height: 90px;
+  box-sizing: border-box; display: grid; grid-template-rows: var(--ym-opponents-height) var(--ym-center-height) var(--ym-own-zone-height);
+  gap: var(--ym-table-gap); height: calc(var(--ym-opponents-height) + var(--ym-center-height) + var(--ym-own-zone-height) + var(--ym-table-gap) * 2 + var(--ym-table-pad) * 2);
+  min-width: 0; width: 100%; padding: var(--ym-table-pad); overflow: hidden;
+}
+.ym-app .ym-opponents { min-height: 0; min-width: 0; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.ym-app .ym-opponent { display: grid; grid-template-rows: var(--ym-seat-height) var(--ym-toggle-height) minmax(0, 1fr); min-height: 0; padding: 0; overflow: hidden; }
+.ym-app .ym-opponent-detail { display: grid; grid-row: 3; grid-template-rows: var(--ym-backs-height) var(--ym-melds-height) var(--ym-river-label-height) minmax(0, 1fr); gap: 2px; min-height: 0; min-width: 0; overflow: hidden; }
+.ym-app .ym-opponent .ym-seat-info { grid-row: 1; }
+.ym-app .ym-table .ym-seat-info strong, .ym-app .ym-player-panel .ym-seat-info strong { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ym-app .ym-table .ym-seat-info small, .ym-app .ym-player-panel .ym-seat-info small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ym-app .ym-table .ym-concealed-hand { min-width: 0; height: 100%; margin: 0; padding: 5px 1px; overflow: hidden; }
+.ym-app .ym-table .ym-meld-strip { min-width: 0; height: 100%; min-height: 0; margin: 0; padding: 4px 3px 18px; flex-wrap: nowrap; gap: 12px; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; overscroll-behavior: contain; }
+.ym-app .ym-table .ym-meld-strip .ym-meld { margin-bottom: 0; }
+.ym-app .ym-table .ym-river-label { min-width: 0; margin: 0; overflow: hidden; white-space: nowrap; }
+.ym-app .ym-table .ym-river-label > span { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.ym-app .ym-table .ym-river { grid-template-columns: repeat(auto-fill, 24px); grid-auto-rows: 35px; min-width: 0; min-height: 0; max-height: none; height: 100%; padding: 5px 3px; overflow-x: hidden; overflow-y: auto; scrollbar-width: thin; scrollbar-gutter: stable; overscroll-behavior: contain; }
+.ym-app .ym-table .ym-empty-seat { height: 100%; min-height: 0; min-width: 0; overflow: hidden; }
+.ym-app .ym-table-center { display: grid; grid-template-columns: 48px minmax(0, 1fr) 142px; grid-template-rows: 38px 44px; gap: 6px 12px; min-height: 0; height: 100%; margin: 0; padding: 6px 0; overflow: hidden; }
+.ym-app .ym-center-emblem { grid-column: 1; grid-row: 1 / 3; padding: 12px 5px; text-align: center; }
+.ym-app .ym-center-state { grid-column: 2; grid-row: 1; display: grid; grid-template-rows: 22px 14px; min-width: 0; height: 36px; overflow: hidden; }
+.ym-app .ym-center-state > strong, .ym-app .ym-center-state > small { min-width: 0; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ym-app .ym-center-state > strong { line-height: 22px; }
+.ym-app .ym-center-state > small { line-height: 14px; }
+.ym-app .ym-countdown, .ym-app .ym-center-limit { grid-column: 3; grid-row: 1; margin: 0; min-width: 0; max-width: 100%; line-height: 1.2; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: right; }
+/* Two bounded text lines and a dedicated tile column fit entirely inside 44px.
+   The 35px mobile tile plus its 4px bar clears the lower border without scrolling. */
+.ym-app .ym-last-discard { display: grid; grid-template-columns: 25px minmax(0, 1fr); grid-column: 2 / -1; grid-row: 2; width: 100%; height: 44px; min-width: 0; max-width: 100%; margin: 0; padding: 2px 8px 4px; overflow: clip; }
+.ym-app .ym-last-discard-copy { display: grid; grid-template-rows: 14px 14px; gap: 2px; min-width: 0; height: 30px; align-self: center; }
+.ym-app .ym-last-discard-copy > strong, .ym-app .ym-last-discard-copy > span { display: block; min-width: 0; line-height: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ym-app .ym-last-discard > .ym-discard-tile { align-self: flex-start; }
+.ym-app .ym-table-center .ym-last-discard strong { font-size: 10px; letter-spacing: 0; }
+.ym-app .ym-own-table-zone { display: grid; grid-template-rows: var(--ym-river-label-height) var(--ym-own-river-height) minmax(0, 1fr); gap: 3px; min-height: 0; min-width: 0; margin: 0; padding: 0; overflow: hidden; }
+.ym-app .ym-table .ym-own-melds { border-top: 1px solid #71997e20; }
+.ym-app .ym-table .ym-zone-caption { flex-shrink: 0; width: auto; margin: 0; }
+/* Include the horizontal hand scrollbar and a trustee banner + qualification
+   line in the fixed tracks. Neither should need a tiny nested vertical scroller. */
+.ym-app .ym-player-panel { box-sizing: border-box; display: grid; grid-template-rows: 36px 96px 72px 72px 28px; gap: 4px; height: 344px; min-height: 0; padding: 12px 18px; overflow-x: hidden; overflow-y: auto; scrollbar-width: thin; }
+.ym-app .ym-player-panel .ym-own-info { height: 100%; min-height: 0; margin: 0; }
+.ym-app .ym-player-panel .ym-hand-row { height: 100%; min-height: 0; overflow: hidden; }
+.ym-app .ym-player-panel .ym-own-hand { min-height: 0; height: 66px; }
+.ym-app .ym-panel-notices { min-height: 0; height: 100%; overflow-x: hidden; overflow-y: auto; scrollbar-width: thin; scrollbar-gutter: stable; overscroll-behavior: contain; }
+.ym-app .ym-panel-notices .ym-win-hint { padding: 3px 0; line-height: 1.5; }
+.ym-app .ym-panel-notices .ym-trustee-banner { padding: 3px 7px; margin: 0 0 3px; }
+.ym-app .ym-player-panel .ym-action-bar { height: 100%; min-height: 0; padding: 3px 2px 7px; flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; overscroll-behavior: contain; }
+.ym-app .ym-action-bar > .ym-button, .ym-app .ym-action-bar > .ym-muted { flex-shrink: 0; white-space: nowrap; }
+.ym-app .ym-player-panel .ym-play-settings { min-height: 0; margin: 0; white-space: nowrap; }
+.ym-app .ym-play-settings > label, .ym-app .ym-mobile-deadline { flex-shrink: 0; }
+.ym-app .ym-river:focus-visible, .ym-app .ym-meld-strip:focus-visible, .ym-app .ym-hand-scroll:focus-visible, .ym-app .ym-panel-notices:focus-visible, .ym-app .ym-action-bar:focus-visible { outline: 1px solid #e9bf6d; outline-offset: -1px; }
+.ym-app .ym-sidebar, .ym-app .ym-sidebar > .ym-side-card { min-width: 0; }
+.ym-app .ym-side-card .ym-live-message { height: 66px; min-height: 66px; max-height: 66px; overflow-x: hidden; overflow-y: auto; overflow-wrap: anywhere; scrollbar-width: thin; scrollbar-gutter: stable; overscroll-behavior: contain; }
+.ym-app .ym-events { height: 232px; min-height: 232px; max-height: 232px; overflow-x: hidden; overflow-y: auto; overflow-wrap: anywhere; scrollbar-width: thin; scrollbar-gutter: stable; overscroll-behavior: contain; }
+.ym-app .ym-live-message:focus-visible, .ym-app .ym-events:focus-visible { outline: 2px solid #b18c48; outline-offset: 2px; }
+@media (max-width: 640px) {
+  .ym-app .ym-main { padding: 14px 10px; }
+  .ym-app .ym-room-heading { margin-bottom: 12px; gap: 9px; }
+  .ym-app .ym-room-heading .ym-overline { display: none; }
+  .ym-app .ym-room-heading h1 { font-size: 16px; }
+  .ym-app .ym-room-heading > .ym-row { gap: 5px; }
+  .ym-app .ym-room-heading .ym-compact { min-height: 34px; padding: 5px 8px; font-size: 10px; }
+  .ym-app .ym-play-layout { padding-bottom: calc(var(--ym-player-panel-height, 260px) + 20px); }
+  .ym-app .ym-table-scroll { border: 3px solid #254b3d; border-radius: 10px; }
+  /* Two 35px river rows + 4px gap + 10px marker padding need at least 84px. */
+  .ym-app .ym-table { --ym-opponents-height: 282px; --ym-center-height: 100px; --ym-own-zone-height: 192px; --ym-table-gap: 8px; --ym-table-pad: 8px; --ym-seat-height: 36px; --ym-toggle-height: 34px; --ym-backs-height: 20px; --ym-river-label-height: 16px; --ym-own-river-height: 86px; grid-template-rows: var(--ym-center-height) var(--ym-opponents-height) var(--ym-own-zone-height); border-radius: 6px; }
+  .ym-app .ym-table > .ym-table-center { grid-row: 1; }
+  .ym-app .ym-table > .ym-opponents { grid-row: 2; }
+  .ym-app .ym-table > .ym-own-table-zone { grid-row: 3; }
+  .ym-app .ym-opponents { gap: 12px; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .ym-app .ym-opponent { padding: 0; }
+  .ym-app .ym-seat-info { gap: 5px; }
+  .ym-app .ym-seat-info strong { font-size: 10px; }
+  .ym-app .ym-seat-info small { font-size: 8px; }
+  .ym-app .ym-seat-info > b { font-size: 18px; }
+  .ym-app .ym-seat-info > b > small { font-size: 8px; }
+  .ym-app .ym-wind { width: 25px; height: 25px; font-size: 13px; }
+  .ym-app .ym-opponent-toggle { display: block; grid-row: 2; width: 100%; min-height: 0; height: 34px; margin: 0; padding: 4px 2px; border: 0; border-bottom: 1px solid #6e96742a; background: transparent; color: #9db592; font-size: 8px; text-align: left; }
+  .ym-app .ym-concealed-hand { gap: 2px; height: 21px; margin: 6px 0; }
+  .ym-app .ym-table .ym-concealed-hand { padding: 2px 1px; }
+  .ym-app .ym-concealed-hand .ym-tile-small { width: 7px; height: 13px; padding: 1px; border-radius: 2px; }
+  .ym-app .ym-concealed-hand .ym-tile-inlay { border: 0; }
+  .ym-app .ym-meld-strip { min-height: 28px; gap: 8px; padding-bottom: 9px; }
+  .ym-app .ym-meld-strip > small { font-size: 8px; }
+  .ym-app .ym-meld { max-width: 100%; }
+  .ym-app .ym-river-label { font-size: 8px; gap: 3px; margin-top: 5px; }
+  .ym-app .ym-river-label small { font-size: 7px; }
+  .ym-app .ym-river { grid-template-columns: repeat(auto-fill, 24px); grid-auto-rows: 35px; gap: 4px; min-height: 43px; max-height: 121px; overflow-x: hidden; overflow-y: auto; padding: 4px 2px; }
+  .ym-app .ym-empty-river { font-size: 8px; }
+  .ym-app .ym-empty-seat { min-height: 120px; padding: 8px; }
+  .ym-app .ym-empty-seat h3 { font-size: 10px; }
+  .ym-app .ym-empty-seat p { font-size: 8px; }
+  .ym-app .ym-table-center { position: static; grid-template-columns: minmax(0, 1fr) 104px; grid-template-rows: 36px 44px; gap: 5px 8px; padding: 6px; margin: 0; border: 1px solid #52765b77; border-radius: 6px; background: #214c3f; box-shadow: 0 4px 12px #12342744; }
+  .ym-app .ym-center-state { grid-column: 1; }
+  .ym-app .ym-countdown, .ym-app .ym-center-limit { grid-column: 2; }
+  .ym-app .ym-center-emblem { display: none; }
+  .ym-app .ym-table-center strong { font-size: 14px; }
+  .ym-app .ym-table-center small { font-size: 9px; }
+  .ym-app .ym-countdown { font-size: 23px; }
+  .ym-app .ym-countdown small { font-size: 8px; }
+  .ym-app .ym-center-limit { font-size: 8px; }
+  .ym-app .ym-last-discard { grid-column: 1 / -1; gap: 9px; padding: 2px 6px 4px; }
+  .ym-app .ym-last-discard strong { font-size: 10px; }
+  .ym-app .ym-last-discard span { font-size: 9px; }
+  .ym-app .ym-last-discard .ym-tile-small { width: 25px; height: 35px; }
+  .ym-app .ym-own-table-zone { margin: 0; padding: 0; }
+  .ym-app .ym-own-melds { min-height: 35px; padding-top: 7px; gap: 10px; }
+  .ym-app .ym-zone-caption { width: 100%; font-size: 8px; }
+  .ym-app .ym-player-panel { position: fixed; z-index: 25; bottom: 0; left: 0; right: 0; grid-template-rows: 30px 84px 72px 72px 26px; height: calc(319px + env(safe-area-inset-bottom, 0px)); padding: 9px 11px calc(9px + env(safe-area-inset-bottom, 0px)); max-height: 60dvh; overflow-y: auto; border-radius: 13px 13px 0 0; border-top: 1px solid #b7b97b77; box-shadow: 0 -8px 25px #07271940; }
+  .ym-app .ym-own-info { margin-bottom: 2px; gap: 8px; }
+  .ym-app .ym-own-info .ym-seat-info { max-width: 220px; }
+  .ym-app .ym-own-info .ym-seat-info strong { font-size: 11px; }
+  .ym-app .ym-hand-hint { max-width: none; font-size: 9px; }
+  .ym-app .ym-hand-row { gap: 9px; justify-content: flex-start; }
+  .ym-app .ym-hand-scroll { flex: 1 1 auto; padding: 10px 3px 10px; scrollbar-color: #62845f #163c31; }
+  .ym-app .ym-own-hand { min-width: 0; width: max-content; min-height: 52px; gap: 3px; }
+  .ym-app .ym-player-panel .ym-own-hand { height: 52px; }
+  .ym-app .ym-hand-tile { min-width: 32px; min-height: 49px; }
+  .ym-app .ym-hand-tile > .ym-tile { width: 32px; height: 47px; border-radius: 4px; padding: 2px; }
+  .ym-app .ym-draw-slot { padding: 9px 1px 12px 9px; }
+  .ym-app .ym-drawn-label { bottom: -11px; font-size: 8px; }
+  .ym-app .ym-win-hint { padding: 3px 0 5px; font-size: 9px; line-height: 1.45; }
+  .ym-app .ym-action-bar { gap: 7px; padding-top: 2px; min-height: 36px; }
+  .ym-app .ym-action-bar .ym-button { min-height: 38px; padding: 7px 12px; font-size: 11px; }
+  .ym-app .ym-action-bar > .ym-muted { font-size: 9px; }
+  .ym-app .ym-action-bar .ym-confirm-discard + .ym-muted { display: none; }
+  .ym-app .ym-play-settings { margin-top: 5px; font-size: 9px; }
+  .ym-app .ym-play-settings label { min-height: 26px; }
+  .ym-app .ym-play-settings label span { font-size: 8px; }
+  .ym-app .ym-mobile-deadline { display: inline; color: #d8ba72; font-size: 10px; }
+  .ym-app .ym-mobile-deadline.ym-urgent { color: #f1a48b; }
+  .ym-app .ym-trustee-banner { padding: 6px 9px; margin: 4px 0 0; font-size: 9px; }
+  .ym-app .ym-trustee-banner .ym-button { min-height: 32px; font-size: 10px; }
+  .ym-app .ym-settlement-clock { font-size: 11px; }
+}
+@media (max-width: 380px) {
+  /* This repeats the checkbox's meaning; omit it at narrow widths instead of
+     giving the 26px settings row its own horizontal scrollbar. */
+  .ym-app .ym-play-settings label span { display: none; }
+}
+@media (max-width: 640px) and (max-height: 540px) {
+  /* A clipped fixed dock can overflow by just 1px near its vh limit. On very
+     short screens use the page's normal scroll instead of a second dock scroll. */
+  .ym-app .ym-player-panel { position: static; max-height: none; }
+  .ym-app .ym-play-layout { padding-bottom: 0; }
+}

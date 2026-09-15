@@ -1,0 +1,77 @@
+.ym-app .ym-hints { box-sizing: border-box; height: 184px; min-height: 184px; max-height: 184px; min-width: 0; overflow: hidden; padding: 12px; }
+.ym-app .ym-hints-content { box-sizing: border-box; height: 100%; min-height: 0; min-width: 0; overflow-x: hidden; overflow-y: auto; overflow-anchor: none; scrollbar-gutter: stable; scrollbar-width: thin; }
+.ym-app .ym-hint-waits { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 10px 8px; min-width: 0; padding: 3px; margin: 0; list-style: none; }
+.ym-app .ym-hint-tile { display: flex; flex: 0 0 50px; min-width: 0; flex-direction: column; align-items: center; gap: 4px; }
+.ym-app .ym-hint-count { color: #506641; font-size: 11px; line-height: 14px; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ym-app .ym-hint-fans { display: flex; flex-direction: column; align-items: center; height: 28px; color: #526149; font-size: 10px; line-height: 14px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ym-app .ym-hint-zero .ym-hint-count { color: #9a553b; }
+.ym-app .ym-discard-hint { display: flex; align-items: flex-start; gap: 4px; min-width: 0; padding: 6px 0; }
+.ym-app .ym-discard-hint > .ym-tile { flex-shrink: 0; margin-top: 3px; }
+.ym-app .ym-discard-hint > .ym-hint-waits { flex: 1 1 0; }
+.ym-app .ym-hint-arrow { width: 18px; height: 18px; flex-shrink: 0; margin-top: 14px; color: #7e866c; }
+.ym-app .ym-replay-page { max-width: 1180px; margin: 10px auto 40px; min-width: 0; }
+.ym-app .ym-replay-heading { align-items: flex-start; flex-wrap: wrap; }
+.ym-app .ym-replay-heading h1 { margin: 8px 0; font-size: 34px; }
+.ym-app .ym-replay-heading p { color: #7d7b69; font-size: 13px; }
+.ym-app .ym-replay-live { padding: 14px 18px; margin: 18px 0; border: 1px solid #bd954c55; border-radius: 8px; color: #83682e; background: #ede3c766; font-size: 13px; line-height: 1.8; }
+.ym-app .ym-replay-picker, .ym-app .ym-replay-hands { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 15px; margin: 20px 0 10px; }
+.ym-app .ym-replay-picker label, .ym-app .ym-replay-hands label { display: flex; flex-direction: column; gap: 7px; flex: 0 1 460px; min-width: 0; font-size: 12px; color: #777966; }
+.ym-app .ym-replay-page select { max-width: 100%; width: 100%; min-width: 0; padding: 11px; border: 1px solid #d9d7c4; border-radius: 6px; color: #314b35; background: #f9f6eb; font: inherit; font-size: 13px; text-overflow: ellipsis; }
+.ym-app .ym-replay-privacy { max-width: 780px; color: #8b8c79; font-size: 11px; line-height: 1.8; }
+.ym-app .ym-replay-empty { padding: 35px 20px; border: 1px dashed #cdcfbb; border-radius: 9px; color: #7d846d; text-align: center; font-size: 13px; }
+.ym-app .ym-replay-note, .ym-app .ym-replay-error { padding: 13px 16px; background: #eae5d2; border-radius: 6px; color: #777044; font-size: 12px; line-height: 1.8; }
+.ym-app .ym-replay-error { color: #965a40; background: #f0e3d8; }
+.ym-app .ym-replay-controls { position: sticky; top: 0; z-index: 10; padding: 14px 18px; margin-top: 20px; border: 1px solid #d9d8c4; border-radius: 9px; background: #f5f2e8f5; backdrop-filter: blur(10px); }
+.ym-app .ym-replay-controls strong { font-size: 15px; color: #304930; }
+.ym-app .ym-replay-controls strong small { margin-left: 10px; font-size: 11px; font-weight: 400; color: #7d836b; }
+.ym-app .ym-replay-controls input { width: 100%; margin: 15px 0; accent-color: #47653b; }
+.ym-app .ym-replay-controls > p { font-size: 11px; color: #7c8067; }
+.ym-app .ym-replay-buttons { display: flex; justify-content: center; gap: 8px; }
+.ym-app .ym-replay-frame { margin-top: 15px; padding: 24px; border-radius: 10px; background: #254f3c; color: #dbe5ca; min-width: 0; }
+.ym-app .ym-replay-step { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; margin-bottom: 15px; }
+.ym-app .ym-replay-step > span { color: #c5b979; font-size: 11px; }
+.ym-app .ym-replay-step strong { font-size: 14px; }
+.ym-app .ym-replay-step small { color: #a5b794; font-size: 11px; }
+.ym-app .ym-replay-latest { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border: 1px solid #b0b97a44; margin-bottom: 17px; font-size: 11px; color: #d0c287; }
+.ym-app .ym-replay-players { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+.ym-app .ym-replay-player { min-width: 0; padding: 15px; border-radius: 7px; background: #183e3066; }
+.ym-app .ym-replay-player header { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 17px; }
+.ym-app .ym-replay-player header strong { font-size: 14px; overflow-wrap: anywhere; }
+.ym-app .ym-replay-player header strong small { display: block; margin-top: 5px; font-size: 10px; font-weight: 400; color: #a4b38a; }
+.ym-app .ym-replay-player header b { flex-shrink: 0; font-size: 24px; color: #d2c482; }
+.ym-app .ym-replay-player header b small { font-size: 10px; font-weight: 400; }
+.ym-app .ym-replay-hand { display: flex; gap: 3px; flex-wrap: wrap; padding: 5px 0 13px; min-height: 58px; }
+.ym-app .ym-replay-drawn { margin-left: 9px; outline: 1px solid #d5c27a; border-radius: 3px; }
+.ym-app .ym-replay-melds { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 20px 15px; min-height: 62px; padding: 15px 0 20px; }
+.ym-app .ym-replay-melds > small, .ym-app .ym-replay-river > small { color: #93ac85; font-size: 10px; }
+.ym-app .ym-replay-river-label { display: block; border-top: 1px solid #7e9a6644; padding-top: 9px; color: #a5b18a; font-size: 10px; }
+.ym-app .ym-replay-river { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 5px; padding: 10px 2px 0; min-height: 85px; }
+.ym-app .ym-replay-result { margin-top: 20px; border-top: 1px solid #b7c58744; padding-top: 15px; }
+.ym-app .ym-replay-result h3 { margin: 0 0 8px; color: #e2ce8d; }
+.ym-app .ym-replay-result p { font-size: 12px; color: #bccaa8; }
+.ym-app .ym-replay-result > div { display: flex; flex-wrap: wrap; gap: 20px; color: #d5dcbf; font-size: 13px; }
+@media (max-width: 850px) { .ym-app .ym-replay-players { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  /* Fan labels and discard candidates need the full sidebar width on phones. */
+  .ym-app .ym-sidebar > .ym-hints { grid-column: 1 / -1; }
+  .ym-app .ym-nav { flex-wrap: wrap; row-gap: 10px; }
+  .ym-app .ym-nav-links { order: 3; flex: 1 0 100%; justify-content: center; }
+  .ym-app .ym-nav .ym-connection { margin-left: auto; }
+  .ym-app .ym-replay-page { margin-top: 4px; }
+  .ym-app .ym-replay-heading h1 { font-size: 25px; }
+  .ym-app .ym-replay-heading p { font-size: 11px; }
+  .ym-app .ym-replay-heading > .ym-button { min-height: 35px; padding: 7px 10px; font-size: 11px; }
+  .ym-app .ym-replay-live { font-size: 11px; padding: 10px 13px; }
+  .ym-app .ym-replay-picker, .ym-app .ym-replay-hands { gap: 9px; }
+  .ym-app .ym-replay-picker label, .ym-app .ym-replay-hands label { flex-basis: 100%; }
+  .ym-app .ym-replay-controls { padding: 11px 9px; }
+  .ym-app .ym-replay-buttons { gap: 5px; }
+  .ym-app .ym-replay-buttons .ym-button { min-height: 37px; padding: 6px 10px; font-size: 11px; }
+  .ym-app .ym-replay-frame { padding: 12px 9px; }
+  .ym-app .ym-replay-player { padding: 12px 9px; }
+  .ym-app .ym-replay-step { gap: 7px; }
+  .ym-app .ym-replay-step strong { width: 100%; font-size: 12px; }
+  .ym-app .ym-replay-hand { gap: 3px; }
+  .ym-app .ym-replay-hand .ym-tile-small { width: 25px; height: 37px; }
+  .ym-app .ym-replay-river .ym-tile-small { width: 24px; height: 35px; }
+}

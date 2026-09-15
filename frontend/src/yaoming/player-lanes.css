@@ -1,0 +1,144 @@
+/* Approved vertical player lanes. Dimensions are independent of live content;
+   small screens use the page, never a clipped/fixed-bottom second viewport. */
+.ym-app:has(.ym-lanes-layout) .ym-nav { height: 60px; }
+.ym-app:has(.ym-lanes-layout) .ym-main { padding-top: 16px; padding-bottom: 16px; }
+.ym-app:has(.ym-lanes-layout) .ym-room-heading { margin-bottom: 12px; }
+.ym-app:has(.ym-lanes-layout) .ym-room-heading .ym-overline { display: none; }
+.ym-app .ym-lanes-layout { grid-template-columns: minmax(0, 1fr) 212px; gap: 16px; padding-bottom: 0; }
+.ym-app .ym-table-scroll:has(.ym-lanes-table) { border: 0; border-radius: 12px 12px 0 0; overflow: visible; }
+.ym-app .ym-table.ym-lanes-table { display: grid; grid-template-rows: repeat(3, 158px); gap: 8px; height: 506px; min-width: 0; padding: 8px; border-radius: 12px 12px 0 0; background: #204c3e; box-shadow: none; }
+.ym-app .ym-player-lane { display: grid; grid-template-columns: 122px minmax(0, 1fr); gap: 14px; min-width: 0; min-height: 0; padding: 10px 12px; border: 1px solid #63907844; border-radius: 7px; background: #255443; }
+.ym-app .ym-player-lane.ym-lane-self { border: 2px solid #d9bb73; padding: 9px 11px; background: #2b5c47; box-shadow: inset 3px 0 #d9bb73; }
+.ym-app .ym-lane-identity { display: flex; align-content: start; align-items: start; flex-wrap: wrap; gap: 7px; min-width: 0; }
+.ym-app .ym-lane-identity .ym-wind { width: 27px; height: 27px; font-size: 16px; }
+.ym-app .ym-lane-identity > div { flex: 1 1 62px; }
+.ym-app .ym-lane-identity strong { font-size: 12px; line-height: 18px; }
+.ym-app .ym-lane-identity small { font-size: 9px; line-height: 16px; }
+.ym-app .ym-lane-identity > b { width: 100%; margin-left: 34px; font-size: 23px; color: #e5dcba; }
+.ym-app .ym-lane-self-badge { display: inline !important; color: #f0d393; margin-left: 4px; font-size: 9px; }
+.ym-app .ym-lane-current .ym-lane-turn { color: #f4d384; }
+.ym-app .ym-lane-body { display: grid; grid-template-rows: 53px minmax(0, 1fr); gap: 0; min-width: 0; }
+.ym-app .ym-lane-public { display: flex; align-items: start; gap: 16px; min-width: 0; }
+.ym-app .ym-lanes-table .ym-concealed-hand { --ym-back-size: 19px; display: grid; grid-template-columns: repeat(max(1, var(--ym-back-count)), minmax(0, 1fr)); width: max(0px, calc(var(--ym-back-count) * var(--ym-back-size) + (var(--ym-back-count) - 1) * 2px)); max-width: 100%; flex: 0 1 auto; height: auto; min-height: 0; gap: 2px; padding: 1px 0; margin: 0; overflow: visible; }
+.ym-app .ym-lanes-table .ym-concealed-hand .ym-tile-small { width: 100%; height: auto; aspect-ratio: 19 / 26; min-width: 0; padding: 2px; border-radius: 2px; box-shadow: 0 2px 0 #13382d; }
+.ym-app .ym-lanes-table .ym-concealed-hand .ym-tile-inlay { border: 1px solid #51846c; }
+.ym-app .ym-lanes-table .ym-meld-strip { flex: 0 0 auto; height: 53px; min-height: 0; min-width: 0; gap: 10px; padding: 0 2px 13px; margin: 0; overflow: visible; flex-wrap: nowrap; }
+.ym-app .ym-lanes-table .ym-meld-strip:empty, .ym-app .ym-lanes-table .ym-concealed-hand:empty { display: none; }
+.ym-app .ym-lanes-table .ym-meld { gap: 1px; margin: 0; }
+.ym-app .ym-lanes-table .ym-meld .ym-tile-small { width: 20px; height: 27.37px; }
+.ym-app .ym-lanes-table .ym-meld-horizontal { width: 27.37px; height: 20px; }
+.ym-app .ym-lanes-table .ym-meld-horizontal > .ym-tile { left: 3.685px; top: -3.685px; }
+.ym-app .ym-lanes-table .ym-meld-stack { width: 27.37px; height: 40px; }
+.ym-app .ym-lanes-table .ym-meld-label { bottom: -12px; font-size: 8px; }
+.ym-app .ym-lane-river { min-width: 0; }
+.ym-app .ym-lane-river-heading { display: flex; align-items: center; justify-content: space-between; height: 17px; gap: 6px; font-size: 9px; color: #adbf9d; }
+.ym-app .ym-lane-river-heading button { padding: 0 4px; background: none; border: 0; color: #d9c893; font-size: 9px; min-height: 17px; }
+.ym-app .ym-lane-river-heading small { font-size: 9px; }
+.ym-app .ym-lane-river-mobile-summary { display: none; }
+.ym-app .ym-lanes-table .ym-river.ym-lane-river-tiles { display: grid; grid-template-columns: repeat(12, 21px); grid-auto-rows: 28.74px; align-content: start; gap: 5px 3px; height: 67px; min-height: 0; max-height: none; min-width: 0; padding: 3px 2px 5px; margin: 0; list-style: none; overflow: visible; scrollbar-gutter: auto; }
+.ym-app .ym-lane-river-tile { display: block; line-height: 1; min-width: 0; }
+.ym-app .ym-lane-river-tile .ym-tile-small { width: 21px; height: 28.74px; }
+.ym-app .ym-lanes-table .ym-lane-empty { display: flex; flex-direction: row; justify-content: flex-start; gap: 16px; padding: 24px; text-align: left; height: 100%; min-height: 0; }
+.ym-app .ym-lanes-table .ym-lane-empty .ym-wind { font-size: 18px; opacity: 1; }
+.ym-app .ym-player-panel { position: static; display: grid; grid-template-columns: minmax(0, 1fr) 220px; grid-template-rows: 28px 80px 96px 40px; gap: 3px 12px; height: 275px; max-height: none; padding: 10px 16px 12px; min-width: 0; overflow: visible; border: 0; box-shadow: none; }
+.ym-app .ym-player-panel .ym-own-info { grid-column: 1 / -1; grid-row: 1; }
+.ym-app .ym-player-panel .ym-hand-row { grid-column: 1 / -1; grid-row: 2; }
+.ym-app .ym-player-panel .ym-hand-hints { grid-column: 1; grid-row: 3; }
+.ym-app .ym-player-panel .ym-panel-notices { grid-column: 1; grid-row: 4; }
+.ym-app .ym-player-panel .ym-action-bar { grid-column: 2; grid-row: 3; }
+.ym-app .ym-player-panel .ym-play-settings { grid-column: 2; grid-row: 4; }
+.ym-app .ym-player-panel .ym-own-info { height: 28px; }
+.ym-app .ym-player-panel .ym-own-info .ym-wind { width: 26px; height: 26px; font-size: 14px; }
+.ym-app .ym-player-panel .ym-own-info .ym-seat-info > b { font-size: 19px; }
+.ym-app .ym-player-panel .ym-own-info .ym-seat-info { max-width: 300px; }
+.ym-app .ym-player-panel .ym-hand-row { justify-content: center; gap: 14px; overflow: visible; }
+.ym-app .ym-player-panel .ym-hand-scroll { flex: 0 1 auto; padding: 10px 3px 12px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+.ym-app .ym-player-panel .ym-hand-scroll::-webkit-scrollbar, .ym-app .ym-player-panel .ym-action-bar::-webkit-scrollbar, .ym-app .ym-hand-hints .ym-hints-content::-webkit-scrollbar { display: none; }
+.ym-app .ym-player-panel .ym-own-hand { min-width: 0; min-height: 0; height: 56px; gap: 4px; }
+.ym-app .ym-player-panel .ym-hand-tile { min-width: 0; min-height: 0; }
+.ym-app .ym-player-panel .ym-hand-tile > .ym-tile { width: 38px; height: 52px; }
+.ym-app .ym-player-panel .ym-draw-slot { padding: 10px 1px 12px 13px; }
+.ym-app .ym-hand-hints { height: 96px; min-width: 0; overflow: hidden; }
+.ym-app .ym-hand-hints .ym-hints { height: 96px; min-height: 96px; max-height: 96px; padding: 0 2px; background: transparent; border: 0; border-radius: 0; }
+.ym-app .ym-hand-hints .ym-hints-content { display: flex; gap: 22px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; scrollbar-gutter: auto; }
+.ym-app .ym-hand-hints .ym-hint-waits { flex-wrap: nowrap; gap: 5px; padding: 3px 0; }
+.ym-app .ym-hand-hints .ym-hint-tile { flex-basis: 46px; flex-shrink: 0; gap: 2px; }
+.ym-app .ym-hand-hints .ym-hint-count { color: #c7d6b6; }
+.ym-app .ym-hand-hints .ym-hint-fans { color: #d7bf7b; }
+.ym-app .ym-hand-hints .ym-hint-zero .ym-hint-count { color: #e8ab90; }
+.ym-app .ym-hand-hints .ym-discard-hint { position: relative; flex-shrink: 0; padding: 0; gap: 5px; }
+/* Separate discard/wait groups inside the existing 22px gap, without reflow. */
+.ym-app .ym-hand-hints .ym-discard-hint + .ym-discard-hint::before { content: ''; position: absolute; left: -11px; top: 7px; bottom: 7px; width: 1px; background: #d7bf7b88; pointer-events: none; }
+.ym-app .ym-player-panel .ym-panel-notices { overflow: hidden; scrollbar-gutter: auto; height: 40px; }
+.ym-app .ym-panel-notices .ym-win-hint { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 10px; line-height: 15px; text-align: left; padding: 0; }
+.ym-app .ym-panel-notices .ym-trustee-banner { display: inline-flex; padding: 0; margin: 0; border: 0; height: 24px; font-size: 10px; background: none; }
+.ym-app .ym-panel-notices .ym-trustee-banner .ym-button { min-height: 23px; padding: 1px 8px; font-size: 9px; }
+.ym-app .ym-player-panel .ym-action-bar { height: 96px; padding: 3px 2px 7px; gap: 8px; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; }
+.ym-app .ym-player-panel .ym-action-bar .ym-button { min-height: 34px; padding: 5px 12px; font-size: 11px; }
+.ym-app .ym-player-panel .ym-play-settings { font-size: 10px; }
+.ym-app .ym-player-panel .ym-play-settings label { min-height: 24px; }
+.ym-app .ym-player-panel .ym-mobile-deadline { display: inline; color: #e3c579; }
+.ym-app .ym-river-dialog { max-width: 680px; }
+.ym-app .ym-river-dialog h2 { font-family: inherit; font-size: 20px; margin: 0; overflow-wrap: anywhere; }
+.ym-app .ym-full-river { display: grid; grid-template-columns: repeat(auto-fill, 43px); gap: 12px 10px; margin: 20px 0; padding: 4px; list-style: none; }
+.ym-app .ym-full-river li { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.ym-app .ym-full-river small { color: #829172; font-size: 9px; }
+.ym-app .ym-river-dialog .ym-river-reminder { font-size: 10px; margin: 12px 0 0; }
+@media (max-width: 1100px) {
+  .ym-app .ym-player-lane { grid-template-columns: 100px minmax(0, 1fr); gap: 10px; }
+  .ym-app .ym-lane-public { gap: 10px; }
+  .ym-app .ym-lanes-table .ym-concealed-hand { --ym-back-size: 17px; }
+  .ym-app .ym-lanes-table .ym-meld-strip { gap: 8px; }
+  .ym-app .ym-lanes-table .ym-meld .ym-tile-small { width: 17px; height: 23.26px; }
+  .ym-app .ym-lanes-table .ym-meld-horizontal { width: 23.26px; height: 17px; }
+  .ym-app .ym-lanes-table .ym-meld-horizontal > .ym-tile { left: 3.13px; top: -3.13px; }
+  .ym-app .ym-lanes-table .ym-meld-stack { width: 23.26px; height: 37px; }
+}
+@media (max-width: 900px) {
+  .ym-app .ym-lanes-layout { grid-template-columns: minmax(0, 1fr); }
+  .ym-app .ym-player-lane { grid-template-columns: 112px minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  .ym-app:has(.ym-lanes-layout) .ym-nav { height: 78px; }
+  .ym-app:has(.ym-lanes-layout) .ym-main { padding: 10px 8px; }
+  .ym-app .ym-lanes-layout { padding-bottom: 0; }
+  .ym-app .ym-table.ym-lanes-table { grid-template-rows: repeat(3, 164px); height: 516px; padding: 6px; gap: 6px; }
+  .ym-app .ym-player-lane { grid-template-columns: 69px minmax(0, 1fr); gap: 8px; padding: 10px 7px; }
+  .ym-app .ym-player-lane.ym-lane-self { padding: 9px 6px; }
+  .ym-app .ym-lane-identity { gap: 3px; display: block; }
+  .ym-app .ym-lane-identity .ym-wind { width: 24px; height: 24px; margin-bottom: 3px; }
+  .ym-app .ym-lane-identity strong { font-size: 10px; }
+  .ym-app .ym-lane-identity > b { display: block; font-size: 18px; margin: 3px 0 0; }
+  .ym-app .ym-lane-identity small { font-size: 8px; line-height: 14px; }
+.ym-app .ym-lanes-table .ym-concealed-hand { --ym-back-size: 14px; gap: 1px; width: max(0px, calc(var(--ym-back-count) * var(--ym-back-size) + (var(--ym-back-count) - 1) * 1px)); }
+  .ym-app .ym-lane-body { grid-template-rows: 59px minmax(0, 1fr); }
+  .ym-app .ym-lane-public { flex-direction: column; gap: 3px; }
+  .ym-app .ym-lanes-table .ym-meld-strip { flex: none; gap: 7px; height: 35px; padding: 0 0 9px; }
+  .ym-app .ym-lanes-table .ym-meld .ym-tile-small { width: 12px; height: 16.42px; }
+  .ym-app .ym-lanes-table .ym-meld-horizontal { width: 16.42px; height: 12px; }
+  .ym-app .ym-lanes-table .ym-meld-horizontal > .ym-tile { left: 2.21px; top: -2.21px; }
+  .ym-app .ym-lanes-table .ym-meld-stack { width: 16.42px; height: 26px; }
+  .ym-app .ym-lanes-table .ym-meld-label { font-size: 7px; }
+  .ym-app .ym-lanes-table .ym-river.ym-lane-river-tiles { grid-template-columns: repeat(8, 21px); }
+  .ym-app .ym-lane-river-mobile-hidden, .ym-app .ym-lane-river-wide-summary { display: none; }
+  .ym-app .ym-lane-river-mobile-summary { display: inline; }
+.ym-app .ym-player-panel { position: static; height: 341px; max-height: none; grid-template-columns: minmax(0, 1fr); grid-template-rows: 28px 66px 96px 40px 50px 24px; padding: 10px 9px 12px; border-radius: 0 0 12px 12px; }
+.ym-app .ym-player-panel > .ym-own-info, .ym-app .ym-player-panel > .ym-hand-row, .ym-app .ym-player-panel > .ym-hand-hints, .ym-app .ym-player-panel > .ym-panel-notices, .ym-app .ym-player-panel > .ym-action-bar, .ym-app .ym-player-panel > .ym-play-settings { grid-row: auto; grid-column: 1; }
+.ym-app .ym-player-panel .ym-action-bar { height: 50px; }
+  .ym-app .ym-player-panel .ym-hand-row { justify-content: flex-start; gap: 8px; }
+  .ym-app .ym-player-panel .ym-hand-scroll { flex: 1 1 auto; }
+  .ym-app .ym-player-panel .ym-hand-tile > .ym-tile { width: 29px; height: 39.68px; }
+  .ym-app .ym-player-panel .ym-own-hand { height: 42px; gap: 3px; }
+  .ym-app .ym-player-panel .ym-draw-slot { padding-left: 8px; }
+  .ym-app .ym-player-panel .ym-hand-hint { max-width: none; font-size: 9px; }
+  .ym-app .ym-player-panel .ym-own-info .ym-seat-info { max-width: 230px; }
+  .ym-app .ym-player-panel .ym-action-bar > .ym-muted { display: none; }
+}
+@media (max-width: 360px) {
+  .ym-app .ym-player-lane { grid-template-columns: 58px minmax(0, 1fr); gap: 5px; }
+  .ym-app .ym-lanes-table .ym-meld-strip { gap: 4px; }
+  .ym-app .ym-lanes-table .ym-meld .ym-tile-small { width: 10px; height: 13.68px; }
+  .ym-app .ym-lanes-table .ym-meld-horizontal { width: 13.68px; height: 10px; }
+  .ym-app .ym-lanes-table .ym-meld-horizontal > .ym-tile { left: 1.84px; top: -1.84px; }
+  .ym-app .ym-lanes-table .ym-meld-stack { width: 13.68px; height: 22px; }
+}

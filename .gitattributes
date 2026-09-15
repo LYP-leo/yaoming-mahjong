@@ -1,0 +1,15 @@
+* text=auto eol=lf
+
+# Upstream artwork and generated atlas are verified byte-for-byte by the build.
+frontend/artwork/mahjong-graphic/** -text
+frontend/public/third-party/mahjong-graphic/** -text
+frontend/src/assets/mahjong-graphic-atlas.json -text
+*.svg -text
+*.png -text
+*.jpg -text
+*.jpeg -text
+*.webp -text
+*.woff -text
+*.woff2 -text
+*.ttf -text
+*.otf -text

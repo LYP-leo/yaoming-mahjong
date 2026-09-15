@@ -1,0 +1,19 @@
+[Unit]
+Description=Mahjong Java game server
+After=network.target
+
+[Service]
+Type=simple
+User=leo
+Group=leo
+WorkingDirectory=/home/leo/mahjong_20260822/backend
+ExecStart=/usr/bin/java -Xms128m -Xmx768m -jar /home/leo/mahjong_20260822/backend/target/mahjong-server-0.1.0.jar --server.address=127.0.0.1
+Restart=on-failure
+RestartSec=5
+SuccessExitStatus=143
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

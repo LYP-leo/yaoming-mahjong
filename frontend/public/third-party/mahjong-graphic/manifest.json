@@ -1,0 +1,162 @@
+{
+  "schemaVersion": 1,
+  "upstream": {
+    "repository": "https://github.com/lietxia/mahjong_graphic",
+    "commit": "3e275804ff58325306710bef3a7406860444bc6a",
+    "directory": "Vectors 矢量图/SVG"
+  },
+  "license": {
+    "file": "LICENSE",
+    "sha256": "574ae3c0481c5648b56c9cd268ba0b879e100ae32a29b0a2583262196b188e8a"
+  },
+  "files": {
+    "1m.svg": {
+      "sha256": "0bee1524e68b8cc916d6ed79529a32274e045b432c3d341644c2bc5f311783f9",
+      "bytes": 4357
+    },
+    "2m.svg": {
+      "sha256": "949efe31438e204c7ffbbde8c1a9c25911c1e3ecc22d47a46de028fab64dad44",
+      "bytes": 4651
+    },
+    "3m.svg": {
+      "sha256": "f8ecd295ec03eef35113496b15304af2427fd7987438e90082f13e9b0ab9a79b",
+      "bytes": 5142
+    },
+    "4m.svg": {
+      "sha256": "4c6475951ff832a97d615700c8db1657e96830448df3ed7fbe941b17681ebaed",
+      "bytes": 5380
+    },
+    "5m.svg": {
+      "sha256": "ab2081cd04aaee4f83ed0fce7c148f5d21ef671618afbfa59d12d8e26630a603",
+      "bytes": 5829
+    },
+    "6m.svg": {
+      "sha256": "1692f679169ac6e6125c67808946ddb5aae47a460b2bd6d558f5aa95fc7a946c",
+      "bytes": 5560
+    },
+    "7m.svg": {
+      "sha256": "a9fc3df811445f006f3a4026a7e78012fe9bb3bbb5cac64e9c4dbcc992391ab2",
+      "bytes": 4788
+    },
+    "8m.svg": {
+      "sha256": "5c5f1c9373402c6c07b2f23b79b2b8f08fe953aa937153bbc3a4cd813d704c98",
+      "bytes": 4661
+    },
+    "9m.svg": {
+      "sha256": "5452cb8a6adde55372578559ed6033f9fe2c05f4d30b56181060d0dd99779295",
+      "bytes": 5082
+    },
+    "1p.svg": {
+      "sha256": "3920ba84c93876c05450488015908185d999a36689a0ea4bccc1944f6c0c5adb",
+      "bytes": 9087
+    },
+    "2p.svg": {
+      "sha256": "6e6c305c514b3f345788d9fed9ad6ee5583c989f1d9f694f1090b4cf5967235d",
+      "bytes": 5374
+    },
+    "3p.svg": {
+      "sha256": "bd204b18eda2aeaaf389f0b55e849ffad9e42e1d94b69760b7a7c3a7b883a687",
+      "bytes": 5872
+    },
+    "4p.svg": {
+      "sha256": "1d90adf6fe71f9ca6684e5c3815f02a6747704e89504baf98c7409f7a74b55e0",
+      "bytes": 7700
+    },
+    "5p.svg": {
+      "sha256": "9def7594f55cab98e943b8a41721305e53ecf8897bfd9cd740032ea5dcf247d5",
+      "bytes": 9476
+    },
+    "6p.svg": {
+      "sha256": "75c268786dfb459444e47660dac461aef3126f07032b35f83f3191ac37fa6cfa",
+      "bytes": 11185
+    },
+    "7p.svg": {
+      "sha256": "e21cb9a8573e339811b6a1784130e223a649c2f7d7bc06c4e66888d0be3b35b8",
+      "bytes": 13016
+    },
+    "8p.svg": {
+      "sha256": "983bfad0d8d61e0583b19f84e58b92a8e4061853ff62e39c3a82103f2ffa6a7b",
+      "bytes": 14404
+    },
+    "9p.svg": {
+      "sha256": "4e635afc8b567aba7e34035f78832247c69a416107392df9bd1e0479da8da7a4",
+      "bytes": 16439
+    },
+    "1s.svg": {
+      "sha256": "8ddad74fa92715079269ebcc15e61047a82875184f9f8a549000d934860bf70c",
+      "bytes": 18305
+    },
+    "2s.svg": {
+      "sha256": "24813ffd97c74c948f32f0026fa18732da1466bbf1adb89f74dc33c5aaf6f4b0",
+      "bytes": 2865
+    },
+    "3s.svg": {
+      "sha256": "f840e98222456d91f2ed8a2fe5702f0dc0df95e88915bfd2112b1855c9429e56",
+      "bytes": 3999
+    },
+    "4s.svg": {
+      "sha256": "4f2ca4054892f3e24ee5c99170eac58ec73723e10a5d0e69967917eeac55a018",
+      "bytes": 5084
+    },
+    "5s.svg": {
+      "sha256": "74a3e3c6a4f9e9a64e1ef4b59fb6150321c6267c7701fb2eb02b03d106106e77",
+      "bytes": 6272
+    },
+    "6s.svg": {
+      "sha256": "525ff232424ef7692219c53ede477aa2c33e670b2ad31c8190e38e6cb76bb3cb",
+      "bytes": 7337
+    },
+    "7s.svg": {
+      "sha256": "9ad2bda746d86e7a493b1c9745abd91a5f764d58a74231bd649902c1a5e826c5",
+      "bytes": 7103
+    },
+    "8s.svg": {
+      "sha256": "fd16dce809607fffd257d8d5c05962f79c07ea8234b2fd55fb69426390d123a2",
+      "bytes": 7758
+    },
+    "9s.svg": {
+      "sha256": "22097601b54c79242f0c21c7008b99b49592dd1e6ea00aeec7cd636e006fa826",
+      "bytes": 8926
+    },
+    "1z.svg": {
+      "sha256": "bf44118e4c3c7313f7b9ec45a94580197fab2d15974e453c96574063d06b502a",
+      "bytes": 3146
+    },
+    "2z.svg": {
+      "sha256": "163e9b8dc6fd83bbb03bd5f516680af6fc27ee089dda73a78051c0bab8a66c27",
+      "bytes": 3602
+    },
+    "3z.svg": {
+      "sha256": "14d08835765cfe508dfa099248532eaef20ab26a636afecb1602b550bbaec9ad",
+      "bytes": 2700
+    },
+    "4z.svg": {
+      "sha256": "10bec33ede1f680d96e04c390cc3faa7c91e286dc95aa1ed166ef43bdac5cb78",
+      "bytes": 2691
+    },
+    "5z.svg": {
+      "sha256": "a5385b02bbde9b581577d0c9118f8cf549900056145cfe7a4f7076e058bc31d4",
+      "bytes": 592
+    },
+    "6z.svg": {
+      "sha256": "22624a5e2cc6a4a6469f8fe9d49d6637cd3fa13e697f4baf1a52f8856831d31c",
+      "bytes": 4039
+    },
+    "7z.svg": {
+      "sha256": "2cff86503ee877371f9dbaa494aec0078a5fc6f45cf3f19aede5330b0f74d66f",
+      "bytes": 2340
+    },
+    "0m.svg": {
+      "sha256": "b5c5a1557cbc7f104ee31b1ae4b93fd1983c97ca41c33f598ebfd058d5b06dac",
+      "bytes": 5836
+    },
+    "0p.svg": {
+      "sha256": "25bbcdcc09bd5bd23069decb65245a39ae466ab4481677829485038df47467c7",
+      "bytes": 9505
+    },
+    "0s.svg": {
+      "sha256": "98c9b8b0fb0a0691217e5a50cae28be431c972d9979691d7b6534ba46e5896d3",
+      "bytes": 6251
+    }
+  }
+}

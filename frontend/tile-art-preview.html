@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>mahjong_graphic 上游 SVG · 牌面验收</title>
+    <style>
+      html, body { margin: 0; min-width: 0; background: #f4f5ee; }
+      .preview-sheet { max-width: 1280px; margin: auto; padding: 30px 26px 60px; }
+      .preview-sheet h1 { font-size: 26px; line-height: 1.4; }
+      .ym-app .preview-sheet .preview-intro { margin-top: 10px; color: #687b74; font-size: 12px; }
+      .preview-nav { display: flex; flex-wrap: wrap; gap: 9px 20px; margin: 22px 0; }
+      .preview-nav a { color: #486951; font-size: 12px; text-underline-offset: 4px; }
+      .preview-section { padding: 25px 0; border-top: 1px solid #d8dfd7; }
+      .preview-section h2 { font-size: 20px; }
+      .ym-app .preview-section > p { margin: 6px 0 20px; color: #687b74; font-size: 12px; }
+      .ym-app .preview-section h3 { margin: 22px 0 12px; color: #59755f; font-size: 14px; }
+      .preview-grid { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 12px; }
+      .preview-grid.preview-honors { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+      .preview-card { display: flex; flex-direction: column; align-items: center; justify-content: flex-end; min-width: 0; margin: 0; padding: 20px 10px 12px; border: 1px solid #d9e1d4; border-radius: 9px; background: #e6ecde; }
+      .preview-card figcaption { margin-top: 14px; font-size: 12px; color: #61705d; text-align: center; }
+      .ym-app .preview-catalog-tile .ym-tile { width: 58px; height: 83px; }
+      .preview-sizes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+      .preview-size-group { border-radius: 10px; padding: 12px 18px 18px; background: #264f3f; min-width: 0; }
+      .ym-app .preview-size-group h3 { margin: 0 0 20px; color: #c8d6ba; font-size: 12px; font-weight: 500; }
+      .preview-size-pair { display: flex; justify-content: center; align-items: flex-end; gap: 25px; }
+      .preview-size-pair figure { margin: 0; text-align: center; }
+      .preview-size-pair figcaption { margin-top: 15px; font-size: 11px; color: #b4c2a8; }
+      .ym-app .preview-size-large .ym-tile { width: 91px; height: 134px; }
+      .ym-app .preview-size-medium .ym-tile { width: 43px; height: 61px; }
+      .ym-app .preview-size-small .ym-tile { width: 24px; height: 34px; }
+      .preview-honor-row { margin-top: 14px; padding: 18px 20px 20px; border-radius: 10px; background: #264f3f; min-width: 0; }
+      .ym-app .preview-honor-row h3 { margin: 0 0 20px; color: #c8d6ba; font-size: 12px; font-weight: 500; }
+      .preview-honor-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(var(--preview-honor-cell), 1fr)); gap: 18px 16px; }
+      .preview-honor-figure { margin: 0; min-width: 0; text-align: center; }
+      .preview-honor-figure figcaption { margin-top: 13px; color: #c2d0b4; font-size: 12px; line-height: 1.5; }
+      .preview-size-small .preview-honor-figure figcaption { font-size: 10px; }
+      .preview-red-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 15px; }
+      .preview-five-pair { display: flex; align-items: flex-end; justify-content: center; gap: 25px; padding: 25px 10px 15px; background: #e6ecde; border: 1px solid #d9e1d4; border-radius: 9px; }
+      .preview-five-pair figure { margin: 0; text-align: center; }
+      .preview-five-pair figcaption { margin-top: 12px; font-size: 11px; color: #61705d; }
+      .ym-app .preview-five-pair .ym-tile { width: 52px; height: 75px; }
+      .preview-meld-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+      .preview-meld-card { padding: 20px 17px 23px; border-radius: 9px; background: #264f3f; min-width: 0; }
+      .ym-app .preview-meld-card h3 { margin: 0 0 17px; font-size: 12px; color: #c8d6ba; }
+      .preview-meld-area { display: flex; align-items: flex-end; min-height: 70px; padding: 5px 0; }
+      .preview-state-grid { display: flex; flex-wrap: wrap; align-items: stretch; gap: 16px; }
+      .preview-state-card { flex: 1 1 160px; min-width: 0; padding: 25px 15px 18px; border-radius: 9px; background: #264f3f; text-align: center; }
+      .preview-state-card > div { display: flex; min-height: 85px; align-items: center; justify-content: center; gap: 10px; }
+      .ym-app .preview-state-card p { margin-top: 13px; color: #b4c2a8; font-size: 11px; }
+      .preview-state-card .ym-hand-tile { display: inline-flex; }
+      .preview-face-isolation { display: flex; align-items: center; justify-content: center; gap: 18px; }
+      .preview-face-only { width: 43px; height: 61px; background: #fffef5; border-radius: 4px; }
+      @media (max-width: 760px) {
+        .preview-sheet { padding: 22px 15px 40px; }
+        .preview-sheet h1 { font-size: 22px; }
+        .preview-grid, .preview-grid.preview-honors { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 7px; }
+        .preview-card { padding: 13px 4px 9px; }
+        .preview-card figcaption { font-size: 10px; }
+        .ym-app .preview-catalog-tile .ym-tile { width: 40px; height: 58px; }
+        .preview-sizes, .preview-red-grid { grid-template-columns: 1fr; }
+        .preview-meld-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .preview-meld-card { padding: 16px 10px 20px; }
+        .preview-honor-row { padding: 16px 12px 18px; }
+        .preview-honor-grid { column-gap: 12px; }
+      }
+      @media (max-width: 380px) {
+        .preview-grid, .preview-grid.preview-honors { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+        .preview-meld-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="tile-art-preview"></div>
+    <script type="module" src="/src/tileArtPreview.ts"></script>
+  </body>
+</html>

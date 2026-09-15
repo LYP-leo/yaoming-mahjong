@@ -1,0 +1,28 @@
+{
+  "name": "mahjong-client",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run tiles:check && vue-tsc -b && vite build",
+    "test": "vitest run",
+    "tiles:build": "node scripts/build-upstream-tiles.mjs",
+    "tiles:check": "node scripts/build-upstream-tiles.mjs --check"
+  },
+  "dependencies": {
+    "axios": "^1.8.4",
+    "pinia": "^3.0.2",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "@vitejs/plugin-vue": "^5.2.3",
+    "@vue/test-utils": "^2.4.6",
+    "jsdom": "^26.1.0",
+    "typescript": "~5.7.2",
+    "vite": "^6.1.0",
+    "vitest": "^3.1.1",
+    "vue-tsc": "^2.2.8"
+  }
+}

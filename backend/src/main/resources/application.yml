@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: mahjong-server
+  jackson:
+    default-property-inclusion: non_null
+mahjong:
+  data:
+    yaoming-file: ${MAHJONG_YAOMING_FILE:./data/yaoming-rooms.json}
+  rooms:
+    empty-retention-ms: ${MAHJONG_EMPTY_ROOM_RETENTION_MS:600000}
