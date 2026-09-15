@@ -1,8 +1,14 @@
-# 要命麻将 · Java + Vue 三人及四人对战
+# 要命麻将
 
-创建房间可以选择“三人版”或“四人实验版”，房间创建后规则固定。三人依据《要命麻将规则集(2).docx》：108 张牌、万子仅一五九且 159 万可组成顺子、东南六局、4 番起和。四人依据《要命麻将规则集 - 四人实验性.docx》及用户最新调整：136 张标准牌、正常万子顺子、东南八局、门清 1 番、全不靠 2 番且不承认风龙，改为3 番起和。两版均每家 10 点、8 番封顶、任意一家归零终场；点和付人数倍番数，自摸其他每家付一倍，最多付至零。
+本项目由 GPT-6 Astra Ultra 构建
 
-四人全不靠只可加不求人或杠上炮，2 番本身不能和，加其中1 番达到3 番后可以和，不叠加门清。旧三人房间保持4 番；已完成结算和旧牌谱不重新计番。最初四人实施见 [四人规则计划](docs/FOUR_PLAYER_RULES_PLAN.md) 和 [四人规则测试报告](docs/FOUR_PLAYER_RULES_TEST_REPORT.md)；随后门槛调整见 [3番起和计划](docs/FOUR_PLAYER_THREE_FAN_PLAN.md) 和 [测试报告](docs/FOUR_PLAYER_THREE_FAN_TEST_REPORT.md)。
+试玩链接：[要命麻将网页端](http://82.156.207.98:5173)
+
+## 说明
+
+创建房间可以选择“三人版”或“四人实验版”，房间创建后规则固定。三人依据[《要命麻将规则集.docx》](https://pan.baidu.com/s/1iabzA2EJUNCvPDvvPgYZFQ?pwd=ws3s)：108 张牌、万子仅一五九且 159 万可组成顺子、东南六局、4 番起和。四人依据[《要命麻将规则集 - 四人实验性.docx》](https://pan.baidu.com/s/1MrG5RJN1s6UkCtsATjBGWg?pwd=g4ix)及用户最新调整：136 张标准牌、正常万子顺子、东南八局、门清 1 番、全不靠 2 番且不承认风龙，改为 3 番起和。两版均每家 10 点、8 番封顶、任意一家归零终场；点和付人数倍番数，自摸其他每家付一倍，最多付至零。
+
+四人全不靠只可加不求人或杠上炮，2 番本身不能和，加其中 1 番达到 3 番后可以和，不叠加门清。旧三人房间保持 4 番；已完成结算和旧牌谱不重新计番。最初四人实施见 [四人规则计划](docs/FOUR_PLAYER_RULES_PLAN.md) 和 [四人规则测试报告](docs/FOUR_PLAYER_RULES_TEST_REPORT.md)；随后门槛调整见 [3番起和计划](docs/FOUR_PLAYER_THREE_FAN_PLAN.md) 和 [测试报告](docs/FOUR_PLAYER_THREE_FAN_TEST_REPORT.md)。
 
 ## 开始一局
 
@@ -34,7 +40,7 @@
 - 新规则新增平和 1 番：四顺子加数牌雀头，允许副露，159 万也算顺子，不附加门清或听口条件。门清改为 2 番，暗杠仍保留门清；断幺不再计番；清全带幺按新总表与附录统一为 3 番，仍排除混全带幺。清一色仅限一种数牌花色；字一色不再叠加清一色，仍排除混全带幺、碰碰和及番牌。番种总数仍为 20。
 - 规则页、听牌、结算和机器人统一使用服务端计番。已完成的结算与旧牌谱保留当时番数、支付及明细，不按新规则重算。历史计划和报告中的旧番值仅作追溯，当前修订计划见 [新版规则同步计划](docs/RULEBOOK_2_UPDATE_PLAN.md)。
 - 花牌版本未提供完整内容，当前只实现无花“朴素规则”。终场积分公式缺失，当前按剩余点数排名，同分按初始风位排序。
-- 本次参考 salasasa 的模块分层与牌桌区域设计，代码独立实现，未复制其源码、品牌或资源，也不连接其游戏服务。
+- 本次参考 [salasasa](https://salasasa.cn/) 的模块分层与牌桌区域设计，代码独立实现，未复制其[源码](https://github.com/xelnagamiao/open_mahjong_unity)、品牌或资源，也不连接其游戏服务。
 
 实施范围与规则映射见 [要命麻将计划](docs/YAOMING_PLAN.md)，验证记录见 [要命麻将测试报告](docs/YAOMING_TEST_REPORT.md)，参考依据见 [salasasa 研究记录](docs/SALASASA_REFERENCE.md)。
 
@@ -91,22 +97,10 @@ node scripts/yaoming-ux-smoke.mjs http://127.0.0.1:5173
 
 ## 现有服务器部署
 
-后端 systemd 单元位于 [deploy/mahjong-backend.service](deploy/mahjong-backend.service)，运行目录为 `/home/leo/mahjong_20260822/backend`，以 `leo` 用户运行构建后的 JAR，并监听 `127.0.0.1`。FRP 转发配置沿用；公网 [要命麻将](http://82.156.207.98:5173/) 由现有 Nginx 在本机 `127.0.0.1:5173` 提供 Vue 正式构建及同源 API。原 `mahjong-frontend.service` 开发服务已停用，避免调试报错遮罩干扰玩家。
-
-服务器默认 Java 21 安装只有运行环境，构建须使用已有的完整 JDK 25；项目仍以 Java 21 为编译目标：
-
-2026-09-08 已按要求停服完成前后端联合重建与重启，数据已备份保留；过程见 [联合更新计划](docs/FULL_UPDATE_20260908_PLAN.md)、[联合更新测试报告](docs/FULL_UPDATE_20260908_TEST_REPORT.md)。服务配置接受 Java 正常 SIGTERM 退出码 143，避免正常停服被误标为 failed。
-
-```bash
-ssh dell
-cd /home/leo/mahjong_20260822/backend
-env JAVA_HOME=/usr/local/lib/jvm/jdk-25.0.4 mvn package
-```
-
 首次安装服务单元时，将仓库中的单元文件安装到 systemd 后再启用；后续更新构建完成后重启后端：
 
 ```bash
-sudo install -m 644 /home/leo/mahjong_20260822/deploy/mahjong-backend.service /etc/systemd/system/mahjong-backend.service
+sudo install -m 644 deploy/mahjong-backend.service /etc/systemd/system/mahjong-backend.service
 sudo systemctl daemon-reload
 sudo systemctl enable --now mahjong-backend.service
 sudo systemctl restart mahjong-backend.service
@@ -118,7 +112,7 @@ sudo systemctl status mahjong-backend.service --no-pager
 前端更新需要构建后发布（不再自动热更新）：
 
 ```bash
-cd /home/leo/mahjong_20260822/frontend
+cd frontend
 npm test
 npm run build
 sudo cp -a dist/. /var/www/mahjong-yaoming-20260907/
